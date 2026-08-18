@@ -1,0 +1,1 @@
+"""Aqari office DocType."""

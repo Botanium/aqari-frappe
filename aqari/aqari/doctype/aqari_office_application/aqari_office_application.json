@@ -1,0 +1,41 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "hash",
+ "creation": "2026-08-19 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": ["applicant_user", "office_name", "legal_name", "governorate", "district", "address", "contact_phone", "contact_email", "registration_reference", "status", "reviewer_user", "reviewer_role", "decision_reason", "submitted_at", "reviewed_at", "approved_office", "synthetic"],
+ "fields": [
+  {"fieldname": "applicant_user", "fieldtype": "Link", "label": "Applicant", "options": "User", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "office_name", "fieldtype": "Data", "label": "Requested Office Name", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "legal_name", "fieldtype": "Data", "label": "Requested Legal Name"},
+  {"fieldname": "governorate", "fieldtype": "Data", "label": "Governorate", "reqd": 1},
+  {"fieldname": "district", "fieldtype": "Data", "label": "District"},
+  {"fieldname": "address", "fieldtype": "Small Text", "label": "Address", "reqd": 1},
+  {"fieldname": "contact_phone", "fieldtype": "Data", "label": "Contact Phone", "reqd": 1},
+  {"fieldname": "contact_email", "fieldtype": "Data", "label": "Contact Email", "reqd": 1},
+  {"fieldname": "registration_reference", "fieldtype": "Data", "label": "Synthetic Registration Reference"},
+  {"fieldname": "status", "fieldtype": "Select", "label": "Status", "options": "Draft\nSubmitted\nUnder Review\nCorrection Required\nApproved\nRejected", "default": "Draft", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "reviewer_user", "fieldtype": "Link", "label": "Reviewer", "options": "User", "read_only": 1},
+  {"fieldname": "reviewer_role", "fieldtype": "Data", "label": "Reviewer Role", "read_only": 1},
+  {"fieldname": "decision_reason", "fieldtype": "Small Text", "label": "Decision Reason", "read_only": 1},
+  {"fieldname": "submitted_at", "fieldtype": "Datetime", "label": "Submitted At", "read_only": 1},
+  {"fieldname": "reviewed_at", "fieldtype": "Datetime", "label": "Reviewed At", "read_only": 1},
+  {"fieldname": "approved_office", "fieldtype": "Link", "label": "Approved Office", "options": "Aqari Office", "read_only": 1},
+  {"fieldname": "synthetic", "fieldtype": "Check", "label": "Synthetic Record", "default": "1", "read_only": 1}
+ ],
+ "is_submittable": 0,
+ "module": "Aqari",
+ "name": "Aqari Office Application",
+ "owner": "Administrator",
+ "permissions": [
+  {"create": 1, "read": 1, "role": "Aqari Platform Operator", "write": 1},
+  {"create": 1, "read": 1, "role": "Aqari Office Applicant", "write": 1},
+  {"read": 1, "role": "Aqari Registration Reviewer"}
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

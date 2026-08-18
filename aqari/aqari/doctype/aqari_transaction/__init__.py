@@ -1,0 +1,1 @@
+"""Aqari transaction DocType."""

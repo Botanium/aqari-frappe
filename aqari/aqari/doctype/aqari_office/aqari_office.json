@@ -1,0 +1,53 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "field:office_code",
+ "creation": "2026-08-19 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "office_code",
+  "office_name",
+  "legal_name",
+  "status",
+  "registration_number",
+  "governorate",
+  "district",
+  "address",
+  "contact_phone",
+  "contact_email",
+  "office_admin_user",
+  "synthetic"
+ ],
+ "fields": [
+  {"fieldname": "office_code", "fieldtype": "Data", "label": "Office Code", "reqd": 1, "unique": 1},
+  {"fieldname": "office_name", "fieldtype": "Data", "label": "Office Name", "reqd": 1},
+  {"fieldname": "legal_name", "fieldtype": "Data", "label": "Legal Name"},
+  {"fieldname": "status", "fieldtype": "Select", "label": "Status", "options": "Pending Approval\nActive\nSuspended\nRevoked", "default": "Pending Approval", "reqd": 1},
+  {"fieldname": "registration_number", "fieldtype": "Data", "label": "Registration Number"},
+  {"fieldname": "governorate", "fieldtype": "Data", "label": "Governorate"},
+  {"fieldname": "district", "fieldtype": "Data", "label": "District"},
+  {"fieldname": "address", "fieldtype": "Small Text", "label": "Address"},
+  {"fieldname": "contact_phone", "fieldtype": "Data", "label": "Contact Phone"},
+  {"fieldname": "contact_email", "fieldtype": "Data", "label": "Contact Email"},
+  {"fieldname": "office_admin_user", "fieldtype": "Link", "label": "Office Administrator", "options": "User"},
+  {"fieldname": "synthetic", "fieldtype": "Check", "label": "Synthetic Record", "default": "1", "read_only": 1}
+ ],
+ "is_submittable": 0,
+ "module": "Aqari",
+ "name": "Aqari Office",
+ "owner": "Administrator",
+ "permissions": [
+  {"create": 1, "delete": 1, "email": 1, "export": 1, "print": 1, "read": 1, "report": 1, "role": "Aqari Platform Operator", "share": 1, "write": 1},
+  {"create": 1, "read": 1, "role": "Aqari Office Administrator", "write": 1},
+  {"read": 1, "role": "Aqari Office Agent"},
+  {"read": 1, "role": "Aqari Registration Reviewer"},
+  {"read": 1, "role": "Aqari AML Reviewer"},
+  {"read": 1, "role": "Aqari Judicial Reviewer"},
+  {"read": 1, "role": "Aqari Federation Reviewer"}
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}

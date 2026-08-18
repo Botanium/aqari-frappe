@@ -1,0 +1,1 @@
+"""Synthetic office registration applications."""

@@ -1,0 +1,39 @@
+{
+ "actions": [],
+ "allow_rename": 0,
+ "autoname": "hash",
+ "creation": "2026-08-19 00:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": ["office", "party_type", "full_name", "national_number", "date_of_birth", "nationality", "phone", "address", "source_of_funds", "identity_front_reference", "identity_back_reference", "portrait_reference", "synthetic"],
+ "fields": [
+  {"fieldname": "office", "fieldtype": "Link", "label": "Office", "options": "Aqari Office", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "party_type", "fieldtype": "Select", "label": "Party Type", "options": "Seller\nBuyer\nLandlord\nTenant", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "full_name", "fieldtype": "Data", "label": "Full Name", "reqd": 1, "in_list_view": 1},
+  {"fieldname": "national_number", "fieldtype": "Data", "label": "Synthetic National Number", "description": "Synthetic identifier only; never enter a real identity number."},
+  {"fieldname": "date_of_birth", "fieldtype": "Date", "label": "Date of Birth"},
+  {"fieldname": "nationality", "fieldtype": "Data", "label": "Nationality"},
+  {"fieldname": "phone", "fieldtype": "Data", "label": "Phone"},
+  {"fieldname": "address", "fieldtype": "Small Text", "label": "Address"},
+  {"fieldname": "source_of_funds", "fieldtype": "Select", "label": "Source of Funds", "options": "\nSalary\nCommercial Income\nInvestment\nInheritance\nOther"},
+  {"fieldname": "identity_front_reference", "fieldtype": "Data", "label": "Identity Front Reference"},
+  {"fieldname": "identity_back_reference", "fieldtype": "Data", "label": "Identity Back Reference"},
+  {"fieldname": "portrait_reference", "fieldtype": "Data", "label": "Portrait Reference"},
+  {"fieldname": "synthetic", "fieldtype": "Check", "label": "Synthetic Record", "default": "1", "read_only": 1}
+ ],
+ "is_submittable": 0,
+ "module": "Aqari",
+ "name": "Aqari Party",
+ "owner": "Administrator",
+ "permissions": [
+  {"create": 1, "delete": 1, "read": 1, "role": "Aqari Platform Operator", "write": 1},
+  {"create": 1, "read": 1, "role": "Aqari Office Administrator", "write": 1},
+  {"create": 1, "read": 1, "role": "Aqari Office Agent", "write": 1},
+  {"read": 1, "role": "Aqari Registration Reviewer"},
+  {"read": 1, "role": "Aqari AML Reviewer"}
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "track_changes": 1
+}
