@@ -284,10 +284,20 @@ def _serialize_transaction(doc: Any, *, include_participants: bool = True) -> di
         "title_transferred",
         "active_session",
         "version",
+        "creation",
+        "modified",
         "submitted_at",
         "completed_at",
     ]
     result = {field: getattr(doc, field, None) for field in fields}
+    result["reference"] = doc.name
+    result["progress"] = TRANSACTION_PROGRESS.get(doc.status, 0)
+    next_action, next_action_en = TRANSACTION_NEXT_ACTION.get(
+        doc.status,
+        ("متابعة المعاملة", "Follow up"),
+    )
+    result["next_action"] = next_action
+    result["next_action_en"] = next_action_en
     if doc.property:
         property_values = frappe.db.get_value(
             "Aqari Property",
@@ -305,7 +315,29 @@ def _serialize_transaction(doc: Any, *, include_participants: bool = True) -> di
                 }
             )
     if include_participants:
-        result["participants"] = [_serialize_participant(row) for row in doc.participants]
+        participants = [_serialize_participant(row) for row in doc.participants]
+        result["participants"] = participants
+        result["parties_count"] = len(participants)
+        seller = next(
+            (
+                row.get("full_name")
+                for row in participants
+                if row.get("participant_type") == "Seller"
+            ),
+            None,
+        )
+        buyer = next(
+            (
+                row.get("full_name")
+                for row in participants
+                if row.get("participant_type") == "Buyer"
+            ),
+            None,
+        )
+        result["seller_label"] = seller
+        result["seller_label_en"] = seller
+        result["buyer_label"] = buyer
+        result["buyer_label_en"] = buyer
     return result
 
 
